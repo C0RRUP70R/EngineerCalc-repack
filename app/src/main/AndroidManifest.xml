@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="aplinf.engineercalc">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/engineer_calc"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/EngineerCalcTheme">
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.ForceCalc" />
+        <activity android:name=".activities.TensionCalc" />
+        <activity android:name=".activities.RotCalc" />
+        <activity android:name=".activities.ResultActivity" />
+        <activity android:name=".activities.CogwheelCalc" />
+        <activity android:name=".activities.CogwheelRevCalc" />
+        <activity android:name=".activities.ToleranceCalc" />
+        <activity android:name=".activities.Material" />
+        <activity android:name=".activities.MaterialSelection"></activity>
+    </application>
+
+</manifest>
