@@ -22,6 +22,8 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "Materials";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
+    private static final String KEY_EN_NAME = "en_name";
+    private static final String KEY_NR_NAME = "nr_name";
     private static final String KEY_STATIC_THRUST = "static_thrust";
     private static final String KEY_STATIC_PRESSURE = "static_pressure";
     private static final String KEY_STATIC_BEND = "static_bend";
@@ -38,6 +40,8 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
     private static final String[] COLUMNS = {
             KEY_ID,
             KEY_NAME,
+            KEY_EN_NAME,
+            KEY_NR_NAME,
             KEY_STATIC_THRUST,
             KEY_STATIC_PRESSURE,
             KEY_STATIC_BEND,
@@ -70,25 +74,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
 
 
 
-    private ContentValues createMaterialEntry(String name, int static_thrust, int static_pressure, int static_bend, int static_cut,
-                                              int passive_thrust, int passive_pressure, int passive_bend, int passive_cut,
-                                              int alternate_thrust, int alternate_pressure, int alternate_bend, int alternate_cut) {
-        ContentValues values = new ContentValues();
-        values.put(KEY_NAME, name);
-        values.put(KEY_STATIC_THRUST, static_thrust);
-        values.put(KEY_STATIC_PRESSURE, static_pressure);
-        values.put(KEY_STATIC_BEND, static_bend);
-        values.put(KEY_STATIC_CUT, static_cut);
-        values.put(KEY_PASSIVE_THRUST, passive_thrust);
-        values.put(KEY_PASSIVE_PRESSURE, passive_pressure);
-        values.put(KEY_PASSIVE_BEND, passive_bend);
-        values.put(KEY_PASSIVE_CUT, passive_cut);
-        values.put(KEY_ALTERNATE_THRUST, alternate_thrust);
-        values.put(KEY_ALTERNATE_PRESSURE, alternate_pressure);
-        values.put(KEY_ALTERNATE_BEND, alternate_bend);
-        values.put(KEY_ALTERNATE_CUT, alternate_cut);
-        return values;
-    }
+
 
     public Material getMaterial(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -107,6 +93,8 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         Material material = new Material();
         material.setId(cursor.getInt(cursor.getColumnIndex("id")));
         material.setName(cursor.getString(cursor.getColumnIndex("name")));
+        material.setEn_name(cursor.getString(cursor.getColumnIndex("en_name")));
+        material.setNr_name(cursor.getString(cursor.getColumnIndex("nr_name")));
         material.setStatic_thrust(cursor.getInt(cursor.getColumnIndex(KEY_STATIC_THRUST)));
         material.setStatic_pressure(cursor.getInt(cursor.getColumnIndex(KEY_STATIC_PRESSURE)));
         material.setStatic_bend(cursor.getInt(cursor.getColumnIndex(KEY_STATIC_BEND)));
@@ -127,8 +115,8 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, // a. table
                 new String[]{String.valueOf(property)}, // b. column names
-                " name = ?", // c. selections
-                new String[]{String.valueOf(name)}, // d. selections args
+                " name = ? OR en_name = ? OR nr_name = ?", // c. selections
+                new String[]{String.valueOf(name), String.valueOf(name), String.valueOf(name)}, // d. selections args
                 null, // e. group by
                 null, // f. having
                 null, // g. order by
@@ -153,6 +141,8 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
                 material = new Material();
                 material.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 material.setName(cursor.getString(cursor.getColumnIndex("name")));
+                material.setEn_name(cursor.getString(cursor.getColumnIndex("en_name")));
+                material.setNr_name(cursor.getString(cursor.getColumnIndex("nr_name")));
                 material.setStatic_thrust(cursor.getInt(cursor.getColumnIndex(KEY_STATIC_THRUST)));
                 material.setStatic_pressure(cursor.getInt(cursor.getColumnIndex(KEY_STATIC_PRESSURE)));
                 material.setStatic_bend(cursor.getInt(cursor.getColumnIndex(KEY_STATIC_BEND)));

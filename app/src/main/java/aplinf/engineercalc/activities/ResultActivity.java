@@ -41,6 +41,12 @@ public class ResultActivity extends AppCompatActivity {
         TextView textType = (TextView) findViewById(R.id.textType);
         TextView textOutput = (TextView) findViewById(R.id.textOutput);
         TextView mainText = (TextView) findViewById(R.id.mainText);
+
+        TextView start_text = (TextView) findViewById(R.id.start_text);
+        TextView end_Text = (TextView) findViewById(R.id.end_text);
+
+        start_text.setText(intent.getStringExtra("inputStart"));
+        end_Text.setText(intent.getStringExtra("inputEnd"));
         switch (type) {
             case "rot":
                 textType.setText("Optimální otáčky");
@@ -94,9 +100,29 @@ public class ResultActivity extends AppCompatActivity {
 
 
     private void prepareSpinner() {
+        Spinner norm_spinner = (Spinner) findViewById(R.id.norm_spinner);
+        ArrayAdapter<CharSequence> norm_adapt = ArrayAdapter.createFromResource(this, R.array.norm_type, android.R.layout.simple_spinner_item);
+        norm_adapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        norm_spinner.setAdapter(norm_adapt);
+
+        norm_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switchMaterialSpinner();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        norm_spinner.setVisibility(View.VISIBLE);
+        findViewById(R.id.norm).setVisibility(View.VISIBLE);
+
         Spinner material_spinner = (Spinner) findViewById(R.id.material_spinner);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.material_array_short, android.R.layout.simple_spinner_item);
+                R.array.csn_material_array_short, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         material_spinner.setAdapter(adapter2);
         material_spinner.setVisibility(View.VISIBLE);
@@ -116,6 +142,30 @@ public class ResultActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void switchMaterialSpinner() {
+        String norm = ((Spinner) findViewById(R.id.norm_spinner)).getSelectedItem().toString().toLowerCase();
+        Spinner material_spinner = (Spinner) findViewById(R.id.material_spinner);
+        switch (norm) {
+            case "čsn":
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                        R.array.csn_material_array_short, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                material_spinner.setAdapter(adapter);
+                break;
+            case "čsn en":
+                adapter = ArrayAdapter.createFromResource(this,
+                        R.array.csn_en_material_array_short, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                material_spinner.setAdapter(adapter);
+                break;
+            default:
+                adapter = ArrayAdapter.createFromResource(this,
+                        R.array.nr_material_array_short, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                material_spinner.setAdapter(adapter);
+        }
     }
 
     private void setSpinnerOutput() {

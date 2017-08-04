@@ -129,6 +129,14 @@ public class TensionCalc extends AppCompatActivity {
             intent.putExtra(MESSAGE_SIDE, typ);
             intent.putExtra(MESSAGE_SIDE2, nature);
             intent.putExtra(MESSAGE_TYPE, "tension");
+
+            typ = ((Spinner) findViewById(R.id.type_spinner)).getSelectedItem().toString();
+            String druh = ((Spinner) findViewById(R.id.nature_spinner)).getSelectedItem().toString();
+            String inputMessage = "Typ:\nDruh:\nPrůřez:";
+            String inputMessageEnd = "\t" + typ +"\n\t" + druh + "\n\t" + String.format("%.2f", area);
+            intent.putExtra("inputStart", inputMessage);
+            intent.putExtra("inputEnd", inputMessageEnd);
+
             startActivity(intent);
         }
 

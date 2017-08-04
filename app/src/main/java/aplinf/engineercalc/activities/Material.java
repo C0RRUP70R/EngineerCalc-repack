@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.List;
+
 import aplinf.engineercalc.R;
+import aplinf.engineercalc.database.SQLiteDatabaseHandler;
 
 import static aplinf.engineercalc.activities.MainActivity.MESSAGE_MAIN;
 
@@ -27,7 +30,14 @@ public class Material extends AppCompatActivity {
         ((TextView) findViewById(R.id.material_id)).setText(id);
         String max_tens = getResources().getString(getResources().getIdentifier("max" + id, "string", getPackageName()));
         ((TextView) findViewById(R.id.max_tens)).setText(max_tens);
-        String material_info = getResources().getString(getResources().getIdentifier("text" + id, "string", getPackageName()));
+        //String material_info = getResources().getString(getResources().getIdentifier("text" + id, "string", getPackageName()));
+        SQLiteDatabaseHandler db = new SQLiteDatabaseHandler(this);
+        List<aplinf.engineercalc.models.Material> materials = db.allMaterials();
+        String material_info = "";
+        for(aplinf.engineercalc.models.Material mat : materials){
+            material_info += mat.toString();
+            material_info += "\n";
+        }
         ((TextView) findViewById(R.id.material_text)).setText(material_info);
 
 

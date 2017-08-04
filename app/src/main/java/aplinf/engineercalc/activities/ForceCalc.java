@@ -34,6 +34,25 @@ public class ForceCalc extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        Spinner norm_spinner = (Spinner) findViewById(R.id.norm_spinner);
+        ArrayAdapter<CharSequence> norm_adapt = ArrayAdapter.createFromResource(this, R.array.norm_type, android.R.layout.simple_spinner_item);
+        norm_adapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        norm_spinner.setAdapter(norm_adapt);
+
+        norm_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switchMaterialSpinner();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
         Spinner type_spinner = (Spinner) findViewById(R.id.type_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.type_array, android.R.layout.simple_spinner_item);
@@ -73,7 +92,7 @@ public class ForceCalc extends AppCompatActivity {
 
         Spinner material_spinner = (Spinner) findViewById(R.id.material_spinner);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.material_array, android.R.layout.simple_spinner_item);
+                R.array.csn_material_array, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         material_spinner.setAdapter(adapter2);
 
@@ -94,7 +113,7 @@ public class ForceCalc extends AppCompatActivity {
                 R.array.prurez_array, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         shape_spinner.setAdapter(adapter3);
-        shape_spinner.setSelection(adapter3.getCount()-1);
+        shape_spinner.setSelection(adapter3.getCount() - 1);
 
         shape_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -140,13 +159,13 @@ public class ForceCalc extends AppCompatActivity {
         }
     }
 
-    private void switchInputValue(){
+    private void switchInputValue() {
         String typ = ((Spinner) findViewById(R.id.type_spinner)).getSelectedItem().toString().toLowerCase();
         String material = ((Spinner) findViewById(R.id.material_spinner)).getSelectedItem().toString();
         String nature = ((Spinner) findViewById(R.id.nature_spinner)).getSelectedItem().toString().toLowerCase();
         TextView material_text = (TextView) findViewById(R.id.material_text);
         EditText material_value = (EditText) findViewById(R.id.material_value);
-        if(!material.equals("Jiný:")) {
+        if (!material.equals("Jiný:")) {
             int tension = getTension(material, typ, nature, this);
 
             String tension_txt = tension + "";
@@ -160,17 +179,41 @@ public class ForceCalc extends AppCompatActivity {
         }
     }
 
-    private void checkValues(){
-        Spinner shape = (Spinner)findViewById(R.id.shape_spinner);
+    private void switchMaterialSpinner() {
+        String norm = ((Spinner) findViewById(R.id.norm_spinner)).getSelectedItem().toString().toLowerCase();
+        Spinner material_spinner = (Spinner) findViewById(R.id.material_spinner);
+        switch (norm) {
+            case "čsn":
+                ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                        R.array.csn_material_array, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                material_spinner.setAdapter(adapter);
+                break;
+            case "čsn en":
+                adapter = ArrayAdapter.createFromResource(this,
+                        R.array.csn_en_material_array, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                material_spinner.setAdapter(adapter);
+                break;
+            default:
+                adapter = ArrayAdapter.createFromResource(this,
+                        R.array.nr_material_array, android.R.layout.simple_spinner_item);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                material_spinner.setAdapter(adapter);
+        }
+    }
+
+    private void checkValues() {
+        Spinner shape = (Spinner) findViewById(R.id.shape_spinner);
         Spinner type = (Spinner) findViewById(R.id.type_spinner);
         String type_str = type.getSelectedItem().toString().toLowerCase();
         int shape_idx = shape.getSelectedItemPosition();
-        if (type_str.equals("smyk")){
+        if (type_str.equals("krut")) {
             ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
                     R.array.prurez_array_short, android.R.layout.simple_spinner_item);
             adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             shape.setAdapter(adapter3);
-            if(shape_idx < adapter3.getCount()){
+            if (shape_idx < adapter3.getCount()) {
                 shape.setSelection(shape_idx);
             } else {
                 shape.setSelection(0);
@@ -202,7 +245,7 @@ public class ForceCalc extends AppCompatActivity {
             String material = ((Spinner) findViewById(R.id.material_spinner)).getSelectedItem().toString();
 
             int tension;
-            if (material.equals("Jiný:")){
+            if (material.equals("Jiný:")) {
                 tension = Integer.parseInt(((EditText) findViewById(R.id.material_value)).getText().toString());
             } else {
                 tension = Integer.parseInt(((TextView) findViewById(R.id.material_text)).getText().toString());
@@ -217,6 +260,13 @@ public class ForceCalc extends AppCompatActivity {
             String message = String.format("%.2f", force);
             intent.putExtra(MESSAGE_MAIN, message);
             intent.putExtra(MESSAGE_TYPE, "force");
+
+            typ = ((Spinner) findViewById(R.id.type_spinner)).getSelectedItem().toString();
+            String druh = ((Spinner) findViewById(R.id.nature_spinner)).getSelectedItem().toString();
+            String inputMessage = "Typ:\nDruh:\nPrůřez:";
+            String inputMessageEnd = "\t" + typ +"\n\t" + druh + "\n\t" + String.format("%.2f", area);
+            intent.putExtra("inputStart", inputMessage);
+            intent.putExtra("inputEnd", inputMessageEnd);
             startActivity(intent);
         }
     }

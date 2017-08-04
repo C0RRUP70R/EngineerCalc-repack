@@ -8,6 +8,25 @@ public class Material {
 
     private int id;
     private String name;
+
+    public String getEn_name() {
+        return en_name;
+    }
+
+    public void setEn_name(String en_name) {
+        this.en_name = en_name;
+    }
+
+    public String getNr_name() {
+        return nr_name;
+    }
+
+    public void setNr_name(String nr_name) {
+        this.nr_name = nr_name;
+    }
+
+    private String en_name;
+    private String nr_name;
     private int static_thrust;
     private int static_pressure;
     private int static_bend;
@@ -21,12 +40,14 @@ public class Material {
     private int alternate_bend;
     private int alternate_cut;
 
-    public Material(int id, String name,
+    public Material(int id, String name, String en_name, String nr_name,
                     int static_hrust, int static_pressure, int static_bend, int static_cut,
                     int passive_hrust, int passive_pressure, int passive_bend, int passive_cut,
                     int alternate_hrust, int alternate_pressure, int alternate_bend, int alternate_cut) {
         this.id = id;
         this.name = name;
+        this.en_name = en_name;
+        this.nr_name = nr_name;
         this.static_thrust = static_hrust;
         this.static_pressure = static_pressure;
         this.static_bend = static_bend;
@@ -161,6 +182,8 @@ public class Material {
         return "Material{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", en_name='" + en_name + '\'' +
+                ", nr_name='" + nr_name + '\'' +
                 ", static_thrust=" + static_thrust +
                 ", static_pressure=" + static_pressure +
                 ", static_bend=" + static_bend +

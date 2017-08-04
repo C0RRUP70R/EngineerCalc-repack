@@ -62,6 +62,12 @@ public class RotCalc extends AppCompatActivity {
             String message = CalcFc.countRot(Speed, Diameter) + " ot/min";
             intent.putExtra(MESSAGE_MAIN, message);
             intent.putExtra(MESSAGE_TYPE, "rot");
+
+            String inputMessage = "Rychlost:\nPrůměr:";
+            String inputMessageEnd = "\t" + speed_str +"\n\t" + diameter_str;
+            intent.putExtra("inputStart", inputMessage);
+            intent.putExtra("inputEnd", inputMessageEnd);
+
             startActivity(intent);
         }
 

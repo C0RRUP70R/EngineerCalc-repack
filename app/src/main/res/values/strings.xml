@@ -12,7 +12,12 @@
         <item>Míjivý</item>
         <item>Střídavý</item>
     </string-array>
-    <string-array name="material_array">
+    <string-array name="norm_type">
+        <item>ČSN</item>
+        <item>ČSN EN</item>
+        <item>číslo materiálu</item>
+    </string-array>
+    <string-array name="csn_material_array">
         <item>11343</item>
         <item>11373</item>
         <item>11423</item>
@@ -23,7 +28,7 @@
         <item>12060</item>
         <item>Jiný: </item>
     </string-array>
-    <string-array name="material_array_short">
+    <string-array name="csn_material_array_short">
         <item>11343</item>
         <item>11373</item>
         <item>11423</item>
@@ -32,6 +37,40 @@
         <item>11700</item>
         <item>12020</item>
         <item>12060</item>
+    </string-array>
+    <string-array name="csn_en_material_array">
+        <item>S235JRG1</item>
+        <item>E295</item>
+        <item>E335</item>
+        <item>E360</item>
+        <item>C16E</item>
+        <item>C55E</item>
+        <item>Jiný: </item>
+    </string-array>
+    <string-array name="csn_en_material_array_short">
+        <item>S235JRG1</item>
+        <item>E295</item>
+        <item>E335</item>
+        <item>E360</item>
+        <item>C16E</item>
+        <item>C55E</item>
+    </string-array>
+    <string-array name="nr_material_array">
+        <item>1.0036</item>
+        <item>1.0050</item>
+        <item>1.0060</item>
+        <item>1.0070</item>
+        <item>1.1148</item>
+        <item>1.1203</item>
+        <item>Jiný: </item>
+    </string-array>
+    <string-array name="nr_material_array_short">
+        <item>1.0036</item>
+        <item>1.0050</item>
+        <item>1.0060</item>
+        <item>1.0070</item>
+        <item>1.1148</item>
+        <item>1.1203</item>
     </string-array>
     <string-array name="prurez_array">
         <item>Kruh</item>
@@ -233,4 +272,5 @@
     <string name="com_star">*   Vypočtená hodnota nemusí odpovídat normovaným hodnotám modulu</string>
     <string name="com_2star">** Hodnota průměru hlavové kružnice je rovna průměru kola</string>
     <string name="butt_ok">OK</string>
+    <string name="norm_text">Značení dle:</string>
 </resources>
