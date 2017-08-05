@@ -30,14 +30,7 @@ public class Material extends AppCompatActivity {
         ((TextView) findViewById(R.id.material_id)).setText(id);
         String max_tens = getResources().getString(getResources().getIdentifier("max" + id, "string", getPackageName()));
         ((TextView) findViewById(R.id.max_tens)).setText(max_tens);
-        //String material_info = getResources().getString(getResources().getIdentifier("text" + id, "string", getPackageName()));
-        SQLiteDatabaseHandler db = new SQLiteDatabaseHandler(this);
-        List<aplinf.engineercalc.models.Material> materials = db.allMaterials();
-        String material_info = "";
-        for(aplinf.engineercalc.models.Material mat : materials){
-            material_info += mat.toString();
-            material_info += "\n";
-        }
+        String material_info = getResources().getString(getResources().getIdentifier("text" + id, "string", getPackageName()));
         ((TextView) findViewById(R.id.material_text)).setText(material_info);
 
 

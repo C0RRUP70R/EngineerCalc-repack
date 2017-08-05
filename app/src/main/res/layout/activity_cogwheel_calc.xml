@@ -255,143 +255,122 @@
 
                 <TextView
                     android:id="@+id/text_tl_zub"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_pata_kr" />
 
                 <TextView
                     android:id="@+id/text_pata_kr"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_hlav_kr" />
 
                 <TextView
                     android:id="@+id/text_roztec_kr"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_roztec"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_roztec_kr" />
 
                 <TextView
                     android:id="@+id/text_vrch_vule"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_roztec" />
 
                 <TextView
                     android:id="@+id/text_vyska_hlavy"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_vrch_vule" />
 
                 <TextView
                     android:id="@+id/text_vyska_paty"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_vyska_hlavy" />
 
                 <TextView
                     android:id="@+id/text_vyska_zubu"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_vyska_paty" />
 
                 <TextView
                     android:id="@+id/text_zub_mez"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_tl_zub" />
 
                 <TextView
                     android:id="@+id/text_hlav_kr"
-                    android:layout_width="0dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/zero_mm"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textColor="#FF000000"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_vyska_zubu" />
             </android.support.constraint.ConstraintLayout>
 

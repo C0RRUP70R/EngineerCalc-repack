@@ -84,7 +84,9 @@ public class CogwheelCalc extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (input.getText().length() == 0) {
-                    setAllFieldsZero();
+                    ((TextView) findViewById(R.id.text_roztec_kr)).setText("0 mm");
+                    ((TextView) findViewById(R.id.text_hlav_kr)).setText("0 mm");
+                    ((TextView) findViewById(R.id.text_pata_kr)).setText("0 mm");
                 } else {
                     calculate();
                 }
@@ -111,13 +113,7 @@ public class CogwheelCalc extends AppCompatActivity {
         ((TextView) findViewById(R.id.text_roztec_kr)).setText(getPitchDiameterStr(modul, count));
         ((TextView) findViewById(R.id.text_hlav_kr)).setText(getHeadDiameterStr(modul, count));
         ((TextView) findViewById(R.id.text_pata_kr)).setText(getFootDiameterStr(modul, count));
-       /* ((TextView)findViewById(R.id.text_roztec)).setText(getPitchStr(modul));
-        ((TextView)findViewById(R.id.text_vrch_vule)).setText(getOutletStr(modul));
-        ((TextView)findViewById(R.id.text_vyska_hlavy)).setText(getHeadStr(modul));
-        ((TextView)findViewById(R.id.text_vyska_paty)).setText(getFootStr(modul));
-        ((TextView)findViewById(R.id.text_vyska_zubu)).setText(getCogHeightStr(modul));
-        ((TextView)findViewById(R.id.text_tl_zub)).setText(getCogWidth(modul));
-        ((TextView)findViewById(R.id.text_zub_mez)).setText(getCogMarStr(modul));*/
+
     }
 
     private void setAllFieldsZero() {
