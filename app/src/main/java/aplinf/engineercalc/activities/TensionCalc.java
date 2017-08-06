@@ -41,6 +41,19 @@ public class TensionCalc extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         type_spinner.setAdapter(adapter);
 
+        type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                checkValues();
+              //  switchInputValue();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         final Spinner shape_spinner = (Spinner) findViewById(R.id.shape_spinner);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
                 R.array.prurez_array, android.R.layout.simple_spinner_item);
@@ -94,6 +107,30 @@ public class TensionCalc extends AppCompatActivity {
                 textB.setVisibility(View.VISIBLE);
                 textA.setText("Strana a (mm):");
                 break;
+        }
+    }
+
+    private void checkValues() {
+        Spinner shape = (Spinner) findViewById(R.id.shape_spinner);
+        Spinner type = (Spinner) findViewById(R.id.type_spinner);
+        String type_str = type.getSelectedItem().toString().toLowerCase();
+        int shape_idx = shape.getSelectedItemPosition();
+        if (type_str.equals("krut")) {
+            ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
+                    R.array.prurez_array_short, android.R.layout.simple_spinner_item);
+            adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            shape.setAdapter(adapter3);
+            if (shape_idx < adapter3.getCount()) {
+                shape.setSelection(shape_idx);
+            } else {
+                shape.setSelection(0);
+            }
+        } else {
+            ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
+                    R.array.prurez_array, android.R.layout.simple_spinner_item);
+            adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            shape.setAdapter(adapter3);
+            shape.setSelection(shape_idx);
         }
     }
 

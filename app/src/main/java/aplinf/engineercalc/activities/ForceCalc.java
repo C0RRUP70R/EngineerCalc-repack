@@ -62,7 +62,7 @@ public class ForceCalc extends AppCompatActivity {
         type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                // checkValues();
+                checkValues();
                 switchInputValue();
             }
 

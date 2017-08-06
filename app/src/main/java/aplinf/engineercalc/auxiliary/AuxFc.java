@@ -25,6 +25,9 @@ public class AuxFc {
             case "smyk":
                 ret = calcArea(area, sideA, sideB);
                 break;
+            case "krut":
+                ret = calcTorqModulus(area, sideA, sideB);
+                break;
         }
         return ret;
     }
@@ -62,6 +65,18 @@ public class AuxFc {
         return 0;
     }
 
+    private static double calcTorqModulus(String area, String sideA, String sideB) {
+        switch (area) {
+            case "kruh":
+                double r = Double.parseDouble(sideA);
+                return CalcFc.modulusCircTorq(r);
+            case "čtverec":
+                double a = Double.parseDouble(sideA);
+                return CalcFc.modulusSquareTorq(a);
+        }
+        return 0;
+    }
+
     public static int getTension(String material, String tensDirection, String tensType, Context context) {
         String param = "";
         switch (tensType) {
@@ -86,6 +101,9 @@ public class AuxFc {
                 param += "bend";
                 break;
             case "smyk":
+                param += "cut";
+                break;
+            case "krut":
                 param += "cut";
                 break;
         }
@@ -186,42 +204,42 @@ public class AuxFc {
         return "";
     }
 
-    private static String getRangeRS250(double val){
-        if (val > 225.0){
+    private static String getRangeRS250(double val) {
+        if (val > 225.0) {
             return "225-250";
         }
-        if (val > 200.0){
+        if (val > 200.0) {
             return "200-225";
         }
-        if (val > 180.0){
+        if (val > 180.0) {
             return "180-200";
         }
-        if (val > 160.0){
+        if (val > 160.0) {
             return "160-180";
         }
-        if (val > 140.0){
+        if (val > 140.0) {
             return "140-160";
         }
         return "";
     }
 
-    private static String getRangeRS500(double val){
-        if (val > 450.0){
+    private static String getRangeRS500(double val) {
+        if (val > 450.0) {
             return "450-500";
         }
-        if (val > 400.0){
+        if (val > 400.0) {
             return "400-450";
         }
-        if (val > 355.0){
+        if (val > 355.0) {
             return "355-400";
         }
-        if (val > 315.0){
+        if (val > 315.0) {
             return "315-355";
         }
-        if (val > 280.0){
+        if (val > 280.0) {
             return "280-315";
         }
-        if (val > 250.0){
+        if (val > 250.0) {
             return "250-280";
         }
         return "";
