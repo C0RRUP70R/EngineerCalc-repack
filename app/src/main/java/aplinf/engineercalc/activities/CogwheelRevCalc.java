@@ -100,7 +100,6 @@ public class CogwheelRevCalc extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.modul_txt)).setText(String.format("%.2f", modul));
         ((TextView) findViewById(R.id.text_roztec_kr)).setText(getPitchDiameterStr(modul, count));
-        //((TextView) findViewById(R.id.text_hlav_kr)).setText(diameter_input + "mm");
         ((TextView) findViewById(R.id.text_pata_kr)).setText(getFootDiameterStr(modul, count));
         ((TextView) findViewById(R.id.text_roztec)).setText(getPitchStr(modul));
         ((TextView) findViewById(R.id.text_vrch_vule)).setText(getOutletStr(modul));

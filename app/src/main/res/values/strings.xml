@@ -6,6 +6,7 @@
         <item>Tlak</item>
         <item>Ohyb</item>
         <item>Smyk</item>
+        <item>Krut</item>
     </string-array>
     <string-array name="nature_array">
         <item>Statický</item>

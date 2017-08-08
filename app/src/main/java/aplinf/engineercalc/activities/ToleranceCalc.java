@@ -79,11 +79,8 @@ public class ToleranceCalc extends AppCompatActivity {
         RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // This will get the radiobutton that has changed in its check state
                 RadioButton checkedRadioButton = (RadioButton) group.findViewById(checkedId);
-                // This puts the value (true/false) into the variable
                 boolean isChecked = checkedRadioButton.isChecked();
-                // If the radiobutton that has changed in check state is now checked...
                 if (isChecked) {
                     switchSpinnerType(checkedRadioButton.getText().toString());
                 }

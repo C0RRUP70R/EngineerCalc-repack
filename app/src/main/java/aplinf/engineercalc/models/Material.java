@@ -8,23 +8,6 @@ public class Material {
 
     private int id;
     private String name;
-
-    public String getEn_name() {
-        return en_name;
-    }
-
-    public void setEn_name(String en_name) {
-        this.en_name = en_name;
-    }
-
-    public String getNr_name() {
-        return nr_name;
-    }
-
-    public void setNr_name(String nr_name) {
-        this.nr_name = nr_name;
-    }
-
     private String en_name;
     private String nr_name;
     private int static_thrust;
@@ -79,6 +62,22 @@ public class Material {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEn_name() {
+        return en_name;
+    }
+
+    public void setEn_name(String en_name) {
+        this.en_name = en_name;
+    }
+
+    public String getNr_name() {
+        return nr_name;
+    }
+
+    public void setNr_name(String nr_name) {
+        this.nr_name = nr_name;
     }
 
     public int getStatic_thrust() {

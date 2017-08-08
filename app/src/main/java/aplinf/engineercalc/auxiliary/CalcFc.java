@@ -58,21 +58,6 @@ public class CalcFc {
         return modulus;
     }
 
-   /* public static double modulusRectTorq(double w, double h, char axis) {
-        double modulus;
-        switch (axis) {
-            case 'x':
-                modulus = w * Math.pow(h, 2) * alpha(h, w);
-                break;
-            case 'z':
-                modulus = h * Math.pow(w, 2) * beta(h, w);
-                break;
-            default:
-                modulus = 0;
-        }
-        return modulus;
-    }*/
-
     public static double modulusSquareBend(double a) {
         double modulus;
         modulus = Math.pow(a, 3) / 6;

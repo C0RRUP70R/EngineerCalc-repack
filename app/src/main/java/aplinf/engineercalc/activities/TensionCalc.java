@@ -45,7 +45,6 @@ public class TensionCalc extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 checkValues();
-              //  switchInputValue();
             }
 
             @Override
@@ -177,8 +176,6 @@ public class TensionCalc extends AppCompatActivity {
             startActivity(intent);
         }
 
-        /*int resourceId = this.getResources().
-                getIdentifier("app" + "_text", "string", this.getPackageName());*/
 
     }
 

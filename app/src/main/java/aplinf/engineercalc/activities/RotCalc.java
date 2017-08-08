@@ -38,13 +38,9 @@ public class RotCalc extends AppCompatActivity {
 
 
 
-    /**
-     * Called when the user clicks the Send button
-     */
+
     public void sendMessage(View view) {
-        // Do something in response to
         Intent intent = new Intent(this, ResultActivity.class);
-        //String EXTRA_MESSAGE = "";
 
         EditText editTextSpeed = (EditText) findViewById(R.id.edit_speed);
         EditText editTextDiameter = (EditText) findViewById(R.id.edit_diameter);

@@ -116,14 +116,6 @@ public class CogwheelCalc extends AppCompatActivity {
 
     }
 
-    private void setAllFieldsZero() {
-        ConstraintLayout results = (ConstraintLayout) findViewById(R.id.constraintLayout);
-        int count = results.getChildCount();
-        for (int i = 0; i < count; i++) {
-            ((TextView) results.getChildAt(i)).setText("0 mm");
-        }
-    }
-
     public boolean onOptionsItemSelected(MenuItem item) {
         finish();
         return true;
